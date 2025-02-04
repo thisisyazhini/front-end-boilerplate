@@ -3,16 +3,20 @@
     <UContainer>
       <header class="border-b mb-8 py-2 text-xl">
         <h1>
-          Welcome to the home page! This is where you can start building your app.
+          Please pick a character for more fun!
         </h1>
       </header>
       <div class="grid gap-4 xl:grid-cols-2">
-        <PageSection title="Rick and Morty API response">
-          <ExampleApiResponseRickAndMorty />
-        </PageSection>
-        <PageSection title="Pokemon API response">
-          <ExampleApiResponsePokemon />
-        </PageSection>
+        <NuxtLink to="/rick-and-morty">
+          <PageSection title="Rick and Morty API response">
+            <ExampleApiResponseRickAndMorty />
+          </PageSection>
+        </NuxtLink>
+        <NuxtLink to="/pokemon">
+          <PageSection title="Pokemon API response">
+            <ExampleApiResponsePokemon />
+          </PageSection>
+        </NuxtLink>
       </div>
     </UContainer>
   </div>
