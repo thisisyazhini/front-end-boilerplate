@@ -3,8 +3,15 @@ import { ViewMode } from '~/constants/view-mode-enum'
 
 const props = defineProps<{
   title: string
-  viewMode?: { type: ViewMode, default: ViewMode.LIST }
+  viewMode: ViewMode
 }>()
+
+const emit = defineEmits(['update:selectedDisplay'])
+
+const selectedDisplay = computed({
+  get: () => props.viewMode,
+  set: value => emit('update:selectedDisplay', value),
+})
 </script>
 
 <template>
@@ -15,7 +22,7 @@ const props = defineProps<{
       </h1>
       <div class="flex justify-between items-center gap-2">
         <label class="text-md text-white">Display mode</label>
-        <USelectMenu :options="[ViewMode.LIST, ViewMode.GRID]" />
+        <USelectMenu v-model="selectedDisplay" size="lg" :options="[ViewMode.LIST, ViewMode.GRID]" />
       </div>
     </div>
   </UContainer>

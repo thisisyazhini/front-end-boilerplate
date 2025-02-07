@@ -13,9 +13,9 @@ const props = defineProps<{
             <div v-if="item.image">
               <NuxtImg :src="item.image" sizes="75px sm:50vw" densities="x1" />
             </div>
-            <div class="text-white">
+            <label class="text-white">
               {{ item.name }}
-            </div>
+            </label>
           </div>
           <UButton class="bg-black text-white">
             Details
