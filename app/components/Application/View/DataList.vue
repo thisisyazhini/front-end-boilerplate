@@ -13,7 +13,7 @@ const props = defineProps<{
             <div v-if="item.image" class="mr-2">
               <NuxtImg :src="item.image" width="60px" height="60px" densities="x1" />
             </div>
-            <label class="text-white">
+            <label class="text-white capitalize">
               {{ item.name }}
             </label>
           </div>
