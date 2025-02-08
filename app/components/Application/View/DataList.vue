@@ -11,7 +11,7 @@ const props = defineProps<{
         <li v-for="item in props.data.results" :key="item" class="flex justify-between items-center border border-white p-2 my-1 rounded-sm">
           <div class="flex items-center">
             <div v-if="item.image">
-              <NuxtImg :src="item.image" sizes="75px sm:50vw" densities="x1" />
+              <NuxtImg :src="item.image" width="60px" height="60px" densities="x1" />
             </div>
             <label class="text-white">
               {{ item.name }}

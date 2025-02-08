@@ -15,9 +15,11 @@ const props = defineProps<{
           <div v-if="item.image">
             <NuxtImg class="mb-2" :src="item.image" sizes="75px sm:50vw" densities="x1" />
           </div>
-          <UButton class="bg-black text-white">
-            Details
-          </UButton>
+          <div class="text-right">
+            <UButton class="bg-black text-white border border-white" @click="$router.push(`/pokemon/${item.id}`)">
+              Details
+            </UButton>
+          </div>
         </li>
       </ul>
     </div>

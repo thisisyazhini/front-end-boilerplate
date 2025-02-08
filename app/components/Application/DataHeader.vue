@@ -22,7 +22,12 @@ const selectedDisplay = computed({
       </h1>
       <div class="flex justify-between items-center gap-2">
         <label class="text-md text-white">Display mode</label>
-        <USelectMenu v-model="selectedDisplay" size="lg" :options="[ViewMode.LIST, ViewMode.GRID]" />
+        <USelectMenu
+          v-model="selectedDisplay" :ui-menu="{ background: 'bg-black',
+                                                input: 'bg-black',
+                                                option: { active: 'bg-primary text-white',
+                                                          color: 'text-white' } }" size="lg" :options="[ViewMode.LIST, ViewMode.GRID]"
+        />
       </div>
     </div>
   </UContainer>
