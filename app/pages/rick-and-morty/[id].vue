@@ -18,8 +18,8 @@ const episodeListRows = computed(() => {
 <template>
   <div class="grid grid-cols-2 w-full bg-black text-white">
     <NuxtImg :src="rickAndMortyData.image" sizes="50vw" class="h-full object-contain" />
-    <div class="overflow-y-auto p-4">
-      <h1 class="text-3xl font-bold">
+    <div class="overflow-y-auto p-8">
+      <h1 class="text-3xl font-bold text-center">
         {{ rickAndMortyData.name }}
       </h1>
       <div class="flex align-middle justify-between text-md gap-4 mt-4">
@@ -27,7 +27,7 @@ const episodeListRows = computed(() => {
           <label class="font-bold">
             Origin
           </label>
-          <div class="">
+          <div>
             {{ rickAndMortyData.origin.name }}
           </div>
         </div>
