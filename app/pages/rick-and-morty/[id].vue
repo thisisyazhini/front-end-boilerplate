@@ -7,6 +7,12 @@ const rickAndMortyData = data?.value as any
 const items = computed(() => [{ label: 'Status', content: rickAndMortyData.status }, { label: 'Species', content: rickAndMortyData.species }, { label: 'Gender', content: rickAndMortyData.gender }, { label: 'Type', content: rickAndMortyData.type }])
 
 const episodeList = computed(() => rickAndMortyData.episode.map((val: string) => ({ episodeLink: val })))
+const page = ref(1)
+const pageCount = 5
+
+const episodeListRows = computed(() => {
+  return episodeList.value.slice((page.value - 1) * pageCount, (page.value) * pageCount)
+})
 </script>
 
 <template>
@@ -49,8 +55,12 @@ const episodeList = computed(() => rickAndMortyData.episode.map((val: string) =>
         :ui=" { base: 'bg-neutral-900',
                 td: {
                   color: 'text-white',
-                } }" :rows="episodeList"
+                } }"
+        :rows="episodeListRows"
       />
+      <div class="flex justify-center px-3 py-3.5 border-t border-gray-200 dark:border-gray-700">
+        <UPagination v-model="page" :page-count="pageCount" :total="episodeList.length" />
+      </div>
     </div>
   </div>
 </template>
