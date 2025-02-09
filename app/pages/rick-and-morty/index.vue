@@ -1,7 +1,11 @@
 <script setup lang="ts">
+import type { RickAndMortyList } from '~/types/rick-and-morty'
 import { ViewMode } from '~/constants/view-mode-enum'
 
-const { data } = useRickAndMortyData<any>('character')
+const { data } = useRickAndMortyData<RickAndMortyList>('character')
+
+const characters = computed(() => data.value?.results || [])
+
 const selectedDisplay = ref(ViewMode.LIST)
 
 function updateSelectedDisplay(changedValue: ViewMode) {
@@ -15,7 +19,7 @@ function updateSelectedDisplay(changedValue: ViewMode) {
       title="Rick and Morty Characters"
       :view-mode="selectedDisplay" @update:selected-display="updateSelectedDisplay"
     />
-    <ApplicationViewDataList v-if="selectedDisplay === ViewMode.LIST" :data="data" />
-    <ApplicationViewDataGrid v-else :data="data" />
+    <ApplicationViewDataList v-if="selectedDisplay === ViewMode.LIST" :character="characters" />
+    <ApplicationViewDataGrid v-else :character="characters" />
   </div>
 </template>
