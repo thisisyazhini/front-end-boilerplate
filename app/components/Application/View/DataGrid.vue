@@ -1,22 +1,22 @@
 <script setup lang="ts">
 const props = defineProps<{
-  data: any
+  character: any
 }>()
 </script>
 
 <template>
   <UContainer>
-    <div class="flex justify-between items-center border border-white p-2">
-      <ul class="min-w-full grid grid-cols-3 gap-4">
-        <li v-for="item in props.data.results" :key="item" class="border border-white p-3 my-1 rounded-sm">
-          <div class="text-white mb-2">
+    <div class="flex justify-between items-center border border-neutral-800 p-4">
+      <ul class="min-w-full grid grid-cols-3 gap-8">
+        <li v-for="item in props.character.results" :key="item" class="bg-neutral-900 border border-neutral-800 p-4 my-1 rounded-sm">
+          <div class="text-white mb-2 capitalize">
             {{ item.name }}
           </div>
           <div v-if="item.image">
-            <NuxtImg class="mb-2" :src="item.image" sizes="75px sm:50vw" densities="x1" />
+            <NuxtImg class="mb-2" :src="item.image" width="200px" height="200px" densities="x1" />
           </div>
           <div class="text-right">
-            <UButton class="bg-black text-white border border-white" @click="$router.push(`/pokemon/${item.id}`)">
+            <UButton class="bg-black text-white" variant="outline" size="lg">
               Details
             </UButton>
           </div>
