@@ -8,7 +8,7 @@ const pageProps = defineProps<{
 
 const emit = defineEmits(['update:selectedPage'])
 
-const total = pageProps.totalCharacters / itemsPerPage
+const total = computed(() => pageProps.totalCharacters / itemsPerPage)
 const selectedPage = computed({
   get: () => pageProps.page,
   set: value => emit('update:selectedPage', value),
