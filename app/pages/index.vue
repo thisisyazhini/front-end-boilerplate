@@ -1,8 +1,8 @@
 <template>
   <div class="py-8">
     <UContainer>
-      <header class="border-b mb-8 py-2 text-xl">
-        <h1>
+      <header class="mb-8 py-2 text-xl">
+        <h1 class="text-2xl">
           Please pick a character for more fun!
         </h1>
       </header>
