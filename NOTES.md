@@ -7,3 +7,4 @@
   - Decided to implement the store for only Rick and morty character data already contains the details of each character, which is not the case for Pokemon
 - Used components from NuxtUI where applicable
 - Created reusable dumb components to avoid code redundancy
+- Didn't delete the boilerplate code. But modified it where necessary

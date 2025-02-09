@@ -83,7 +83,14 @@ const gameIndicesListRows = computed(() => {
           }" :rows="gameIndicesListRows"
         />
         <div class="flex justify-center px-3 py-3.5">
-          <UPagination v-model="page" :page-count="pageCount" :total="gameIndicesList?.length || 0" />
+          <UPagination
+            v-model="page"
+            :page-count="pageCount"
+            :total="gameIndicesList?.length || 0"
+            :inactive-button="{ color: 'white', variant: 'outline' }"
+            :prev-button="{ icon: 'i-heroicons-arrow-small-left-20-solid', label: 'Prev', color: 'white', variant: 'outline' }"
+            :next-button="{ icon: 'i-heroicons-arrow-small-right-20-solid', trailing: true, label: 'Next', color: 'white', variant: 'outline' }"
+          />
         </div>
       </div>
     </div>

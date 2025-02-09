@@ -24,9 +24,11 @@ const selectedDisplay = computed({
         <label class="text-md text-white">Display mode</label>
         <USelectMenu
           v-model="selectedDisplay"
-          size="lg"
-          :ui-menu="{ background: 'bg-black', input: 'bg-black', option: { active: 'bg-primary text-white', color: 'text-white' } }"
+          size="sm"
+          color="primary"
           :options="[ViewMode.LIST, ViewMode.GRID]"
+
+          :ui-menu="{ background: 'bg-neutral-900', option: { base: 'bg-neutral-900', active: 'border border-primary', color: 'text-white' } }"
         />
       </div>
     </div>
