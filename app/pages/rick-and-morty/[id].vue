@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import type { RickAndMorty } from '~/types/rick-and-morty'
+import { useRickAndMortyStore } from '~/lib/rick-and-morty-store'
 
 const route = useRoute()
 
-const { data } = await useRickAndMortyData<RickAndMorty>(`character/${route.params.id}`)
-const rickAndMortyData = data?.value
+const store = useRickAndMortyStore()
+const rickAndMortyData = await store.fetchData(route.params.id)
 
 const items = computed(() => [
   { label: 'Status', content: rickAndMortyData?.status },
