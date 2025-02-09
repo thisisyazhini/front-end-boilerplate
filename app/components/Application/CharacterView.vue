@@ -3,7 +3,7 @@ import type { Pokemon } from '~/types/pokemon'
 import type { RickAndMorty } from '~/types/rick-and-morty'
 import { ViewMode } from '~/constants/view-mode-enum'
 
-const characters = defineProps<{
+const props = defineProps<{
   title: string
   characters: Pokemon[] | RickAndMorty[]
 }>()
@@ -17,8 +17,8 @@ function updateSelectedDisplay(changedValue: ViewMode) {
 
 <template>
   <div class="py-8 bg-black">
-    <ApplicationDataHeader :view-mode="selectedDisplay" :title="title" @update:selected-display="updateSelectedDisplay" />
-    <ApplicationViewDataList v-if="selectedDisplay === ViewMode.LIST" :character="characters" />
-    <ApplicationViewDataGrid v-else :character="characters" />
+    <ApplicationCharacterHeader :view-mode="selectedDisplay" :title="props.title" @update:selected-display="updateSelectedDisplay" />
+    <ApplicationViewCharacterList v-if="selectedDisplay === ViewMode.LIST" :characters="props.characters" />
+    <ApplicationViewCharacterGrid v-else :characters="props.characters" />
   </div>
 </template>
