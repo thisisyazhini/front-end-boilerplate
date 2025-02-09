@@ -8,6 +8,12 @@ const props = defineProps<{
   characters: Pokemon[] | RickAndMorty[]
 }>()
 
+const emit = defineEmits(['update:characterId'])
+
+function updateCharacterId(characterid: string) {
+  emit('update:characterId', characterid)
+}
+
 const selectedDisplay = ref(ViewMode.LIST)
 
 function updateSelectedDisplay(changedValue: ViewMode) {
@@ -18,7 +24,7 @@ function updateSelectedDisplay(changedValue: ViewMode) {
 <template>
   <div class="py-8 bg-black">
     <ApplicationCharacterHeader :view-mode="selectedDisplay" :title="props.title" @update:selected-display="updateSelectedDisplay" />
-    <ApplicationViewCharacterList v-if="selectedDisplay === ViewMode.LIST" :characters="props.characters" />
-    <ApplicationViewCharacterGrid v-else :characters="props.characters" />
+    <ApplicationViewCharacterList v-if="selectedDisplay === ViewMode.LIST" :characters="props.characters" @update:character-id="updateCharacterId" />
+    <ApplicationViewCharacterGrid v-else :characters="props.characters" @update:character-id="updateCharacterId" />
   </div>
 </template>

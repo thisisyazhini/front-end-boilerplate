@@ -10,8 +10,12 @@ const characters = computed(() => (data.value?.results || []).map((val) => {
   val.id = getPokemonId(val.url)
   return val
 }))
+
+async function navigateToPokemonDetail(characterId: string) {
+  await navigateTo({ path: `/pokemon/${characterId}` })
+}
 </script>
 
 <template>
-  <ApplicationCharacterView title="Pokemon" :characters="characters" />
+  <ApplicationCharacterView title="Pokemon" :characters="characters" @update:character-id="navigateToPokemonDetail" />
 </template>

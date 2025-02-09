@@ -5,6 +5,7 @@ import type { RickAndMorty } from '~/types/rick-and-morty'
 const props = defineProps<{
   characters: Pokemon[] | RickAndMorty[]
 }>()
+const emit = defineEmits(['update:characterId'])
 </script>
 
 <template>
@@ -20,7 +21,7 @@ const props = defineProps<{
               {{ item.name }}
             </label>
           </div>
-          <UButton class="bg-black text-white">
+          <UButton class="bg-black text-white" @click="emit('update:characterId', item.id)">
             Details
           </UButton>
         </li>
