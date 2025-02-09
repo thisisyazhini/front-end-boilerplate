@@ -7,11 +7,11 @@ const pokemonData = data.value
 const imageUrl = pokemonData?.sprites.other['official-artwork']?.front_default
 
 const items = computed(() => [
-  { label: 'Abilities', content: pokemonData?.abilities.map(val => val.ability.name) },
-  { label: 'Forms', content: pokemonData?.forms.map(val => val.name) },
-  { label: 'Moves', content: pokemonData?.moves.map(val => val.move.name) },
-  { label: 'Type', content: pokemonData?.types.map(val => val.type.name) },
-  { label: 'Stats', content: pokemonData?.stats.map(val => val.stat.name) },
+  { label: 'Abilities', content: pokemonData?.abilities.map(val => val.ability.name).join(', ') },
+  { label: 'Forms', content: pokemonData?.forms.map(val => val.name).join(', ') },
+  { label: 'Moves', content: pokemonData?.moves.map(val => val.move.name).join(', ') },
+  { label: 'Type', content: pokemonData?.types.map(val => val.type.name).join(', ') },
+  { label: 'Stats', content: pokemonData?.stats.map(val => val.stat.name).join(', ') },
 ])
 const gameIndicesList = computed(() =>
   pokemonData?.game_indices.map(val =>
@@ -60,7 +60,7 @@ const gameIndicesListRows = computed(() => {
           :items="items"
         >
           <template #item="{ item }">
-            <p class="px-3">
+            <p class="px-3 capitalize">
               {{ item.content || 'Unknown' }}
             </p>
           </template>
