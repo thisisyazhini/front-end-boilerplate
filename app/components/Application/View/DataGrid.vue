@@ -16,7 +16,7 @@ const props = defineProps<{
             {{ item.name }}
           </div>
           <div v-if="item.image">
-            <NuxtImg class="mb-2" :src="item.image" width="200px" height="200px" densities="x1" />
+            <NuxtImg class="mb-2 w-full object-contain rounded" :src="item.image" width="200px" height="200px" densities="x1" />
           </div>
           <div class="text-right">
             <UButton class="bg-black text-white" variant="outline" size="lg">
