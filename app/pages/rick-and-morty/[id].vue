@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { RickAndMorty } from '~/types/rick-and-morty'
 import { useRickAndMortyStore } from '~/lib/rick-and-morty-store'
 
 const route = useRoute()
@@ -27,10 +26,19 @@ const episodeListRows = computed(() => {
   <div class="grid grid-cols-2 w-full bg-black text-white">
     <NuxtImg :src="rickAndMortyData?.image" sizes="50vw" class="h-full object-contain" />
     <div class="overflow-y-auto p-8">
-      <h1 class="text-3xl font-bold text-center">
-        {{ rickAndMortyData?.name }}
-      </h1>
-      <div class="flex align-middle justify-between text-md gap-4 mt-4">
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold text-center">
+          {{ rickAndMortyData?.name }}
+        </h1>
+        <ULink
+          class="text-sm underline"
+          to="/rick-and-morty"
+          active-class="text-primary"
+        >
+          Back to Rick and Morty
+        </ULink>
+      </div>
+      <div class="flex items-center justify-between text-md gap-4 mt-4">
         <div class="space-y-2">
           <label class="font-bold">
             Origin

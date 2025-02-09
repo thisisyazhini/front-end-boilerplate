@@ -30,11 +30,20 @@ const gameIndicesListRows = computed(() => {
   <div class="grid grid-cols-2 w-full bg-black text-white">
     <NuxtImg :src="imageUrl" sizes="50vw" class="h-full object-contain" />
     <div class="overflow-y-auto p-8">
-      <h1 class="text-3xl font-bold capitalize text-center">
-        {{ pokemonData?.name }}
-      </h1>
+      <div class="flex items-center justify-between">
+        <h1 class="text-3xl font-bold capitalize text-center">
+          {{ pokemonData?.name }}
+        </h1>
+        <ULink
+          class="text-sm underline"
+          to="/pokemon"
+          active-class="text-primary"
+        >
+          Back to Pokemon
+        </ULink>
+      </div>
       <div>
-        <div class="flex align-middle justify-between text-md gap-4 mt-4">
+        <div class="flex items-center justify-between text-md gap-4 mt-4">
           <div class="space-y-2">
             <label class="font-bold">Weight</label>
             <div>{{ pokemonData?.weight }}</div>
