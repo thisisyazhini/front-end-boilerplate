@@ -30,7 +30,10 @@ export default defineNuxtConfig({
       routes: ['/', '/assignment'],
     },
   },
-
+  image: {
+    provider: 'netlify',
+    domains: ['raw.githubusercontent.com', 'rickandmortyapi.com'],
+  },
   app: {
     head: {
       viewport: 'width=device-width,initial-scale=1',
