@@ -33,7 +33,6 @@ export default defineNuxtConfig({
   image: {
     provider: 'netlify',
     domains: ['raw.githubusercontent.com', 'rickandmortyapi.com'],
-    passThrough: 'true',
   },
   app: {
     head: {
