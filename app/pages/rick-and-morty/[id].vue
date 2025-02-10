@@ -24,7 +24,7 @@ const episodeListRows = computed(() => {
 
 <template>
   <div class="grid grid-cols-2 w-full bg-black text-white">
-    <NuxtImg :src="rickAndMortyData?.image" sizes="50vw" class="h-full object-contain" />
+    <img :src="rickAndMortyData?.image" sizes="50vw" class="h-full object-contain">
     <div class="overflow-y-auto p-8">
       <div class="flex items-center justify-between">
         <h1 class="text-3xl font-bold text-center">

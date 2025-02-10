@@ -18,7 +18,7 @@ const emit = defineEmits(['update:characterId'])
             {{ item.name }}
           </div>
           <div v-if="item.image">
-            <NuxtImg class="mb-2 w-full object-contain rounded" :src="item.image" width="200px" height="200px" densities="x1" />
+            <img class="mb-2 w-full object-contain rounded" :src="item.image" width="200px" height="200px">
           </div>
           <div class="text-right" @click="emit('update:characterId', item.id)">
             <UButton class="bg-black text-white" variant="outline" size="lg">
